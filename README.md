@@ -57,4 +57,4 @@ We then used the UNION SELECT statement to extract information about the databas
 1' UNION SELECT column_name,2 FROM information_schema.columns WHERE table_name = 'users' #
 ```
 
-![SQL Injection Screenshot]('https://github.com/meetg94/dvwa_pen_test/assets/86708110/bfb77880-04a3-4005-ab35-fc073d1fde9d')
+![SQL Injection Screenshot]("https://github.com/meetg94/dvwa_pen_test/assets/86708110/bfb77880-04a3-4005-ab35-fc073d1fde9d")
