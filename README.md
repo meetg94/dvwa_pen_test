@@ -40,12 +40,12 @@ SQL Injection is a code injection technique that attackers can use to exploit vu
 1. #### Identifying the Vulnerability
 We started by testing for a SQL Injection vulnerability. We entered a single quote (') into the User ID field and observed the application's response. The application returned a SQL error message, indicating that it is vulnerable to SQL Injection.
 
-![SQL Injection Screenshot]('https://github.com/meetg94/dvwa_pen_test/assets/86708110/161ec019-8b2f-4ff0-bde8-88d521019003')
+![SQL Injection Screenshot]('https://user-images.githubusercontent.com/86708110/256084274-161ec019-8b2f-4ff0-bde8-88d521019003.png')
 
 2. #### Determining the Number of Columns
 Next, we determined the number of columns in the original SQL query. We used the ORDER BY clause and incremented the number until we got an error. We found that the original SQL query has 2 columns.
 
-![SQL Injection Screenshot]('https://github.com/meetg94/dvwa_pen_test/assets/86708110/1d965870-994e-4bf3-af82-18e44b7f1b87')
+![SQL Injection Screenshot]('https://user-images.githubusercontent.com/86708110/256084282-1d965870-994e-4bf3-af82-18e44b7f1b87.png')
 
 3. #### Extracting Database Information
 We then used the UNION SELECT statement to extract information about the database structure. We retrieved a list of all tables in the database and then a list of all columns in the users and guestbook tables.
@@ -57,4 +57,4 @@ We then used the UNION SELECT statement to extract information about the databas
 1' UNION SELECT column_name,2 FROM information_schema.columns WHERE table_name = 'users' #
 ```
 
-![SQL Injection Screenshot]("https://github.com/meetg94/dvwa_pen_test/assets/86708110/bfb77880-04a3-4005-ab35-fc073d1fde9d")
+![SQL Injection Screenshot]("https://user-images.githubusercontent.com/86708110/256084300-bfb77880-04a3-4005-ab35-fc073d1fde9d.png")
