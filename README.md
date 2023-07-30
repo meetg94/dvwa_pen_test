@@ -58,3 +58,26 @@ We then used the UNION SELECT statement to extract information about the databas
 ```
 
 ![SQL Injection Screenshot](https://user-images.githubusercontent.com/86708110/256084300-bfb77880-04a3-4005-ab35-fc073d1fde9d.png)
+
+##### Session Cookies:
+Session cookies are critical for maintaining a user's state during navigation across a website. They are used to keep users logged in, track their activities, and deliver personalized content. However, if not handled securely, session cookies can be exploited by attackers to impersonate users and gain unauthorized access to their accounts.
+
+In this project, we used a session cookie to maintain our session with the DVWA. The session cookie, specifically the PHPSESSID, was required to perform the Blind SQL Injection attack. We extracted the PHPSESSID from our browser's developer tools and included it in our Python script to send authenticated requests to the DVWA.
+
+##### Extracting PHPSESSID:
+1. Open the DVWA in your browser.
+2. Open the developer tools (F12 in most browsers).
+3. Navigate to the 'Application' or 'Storage' tab.
+4. Under 'Cookies', select the DVWA URL.
+5. Find the PHPSESSID and copy its value.
+
+##### Extracting Hashed Password:
+
+We used a blind SQL Injection technique to extract the hashed password of the 'admin' user. We iterated over each character of the password, and for each character, we iterated over a list of possible characters. We used a SQL query to check if the character at the current position matches the current character from the list. If the application's response indicated a match, we added the character to the final password.
+
+We created a python script (sqppwdinject.py) to automate the process.
+
+![SQL Injection password script](https://user-images.githubusercontent.com/86708110/257036338-7478179c-c16b-4c5f-a100-d7b731fce31b.png)
+
+4. #### Python Script
+We created a Python script to automate the process of extracting the hashed password. The script sends GET requests to the DVWA server with the SQL Injection payloads and analyzes the responses to check for matches, and constructs the final password. The script uses the requests library for sending GET requests and handling the HTTP responses.
